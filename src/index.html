@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Palantir Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- TailwindCSS (CDN 버전) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <!-- IBM Plex Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      font-family: 'IBM Plex Sans', 'Arial', sans-serif; /*  여기도 IBM Plex Sans로 */
+    }
+
+    section {
+      scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: background-color 1s;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      color: white;
+    }
+
+    nav .links a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav .links a:hover {
+      color: #00b4d8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 상단 네비게이션 -->
+  <nav>
+    <div class="font-bold text-xl">Palantir Clone</div>
+    <div class="links">
+      <a href="#platform">Platform</a>
+      <a href="#security">Security</a>
+      <a href="#deployment">Deployment</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- 풀스크린 섹션들 -->
+  <section id="platform" class="bg-black text-white animate__animated animate__fadeIn">
+    <h1 class="text-5xl font-bold mb-6">AI Platform</h1>
+    <p class="text-2xl">Transform your enterprise with AI-driven solutions.</p>
+  </section>
+
+  <section id="security" class="bg-gray-100 text-gray-900 animate__animated animate__fadeIn">
+    <h1 class="text-5xl font-bold mb-6">Secure Your Data</h1>
+    <p class="text-2xl">Military-grade security integrated into every layer.</p>
+  </section>
+
+  <section id="deployment" class="bg-black text-white animate__animated animate__fadeIn">
+    <h1 class="text-5xl font-bold mb-6">Fast Deployment</h1>
+    <p class="text-2xl">Deploy AI models seamlessly across your enterprise.</p>
+  </section>
+
+  <section id="contact" class="bg-gray-100 text-gray-900 animate__animated animate__fadeIn">
+    <h1 class="text-5xl font-bold mb-6">Contact Us</h1>
+    <p class="text-2xl">Let's build the future together.</p>
+  </section>
+
+</body>
+</html>
