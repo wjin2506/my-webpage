@@ -1,32 +1,22 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VMS Holdings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VMSforSEA</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 100%;
+      background-color: black;
+      font-family: sans-serif;
     }
 
     .container {
       position: relative;
       width: 100%;
-      max-width: 1480px;
-      aspect-ratio: 16 / 9;
-      border: 1px solid #9747FF;
+      height: 100vh;
       overflow: hidden;
     }
 
@@ -34,59 +24,42 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      filter: brightness(55%);
     }
 
-    .overlay {
+    .overlay-text {
       position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
-
-    .text-overlay {
-      position: absolute;
-      top: 5%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
+      transform: translate(-50%, -50%);
+      color: white;
       text-align: center;
-      padding: 0 20px;
-      width: 100%;
-      max-width: 90%;
-    }
-
-    .text-overlay p {
-      margin-bottom: 12px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #fff;
+      font-size: 1.4rem;
+      line-height: 1.7;
+      padding: 0 5%;
       word-break: keep-all;
     }
 
-    .text-overlay a {
-      color: #4daaff;
+    .overlay-text a {
+      color: #5cbcff;
       text-decoration: none;
     }
 
+    .overlay-text a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
-      .text-overlay p {
+      .overlay-text {
         font-size: 1rem;
         line-height: 1.5;
-      }
-
-      .container {
-        aspect-ratio: 4 / 3;
       }
     }
 
     @media (max-width: 480px) {
-      .text-overlay p {
+      .overlay-text {
         font-size: 0.9rem;
-      }
-
-      .container {
-        aspect-ratio: 3 / 4;
+        line-height: 1.4;
       }
     }
   </style>
@@ -97,15 +70,15 @@
       <source src="video/intro.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-    <div class="overlay"></div>
-    <div class="text-overlay">
-      <p>The VMS Holdings website is currently undergoing renewal.</p>
+
+    <div class="overlay-text">
+      <p>The VMS Holdings website is currently<br />undergoing renewal.</p>
       <p>
-        For inquiries, contact us at
-        <a href="tel:+82514030790">+82-51-403-0790</a> or
-        <a href="mailto:vmsholdings@vmsforsea.com">vmsholdings@vmsforsea.com</a>.
+        For inquiries, contact us at 
+        <a href="tel:+82514030790">+82-51-403-0790</a><br />
+        or <a href="mailto:vmsholdings@vmsforsea.com">vmsholdings@vmsforsea.com</a>
       </p>
-      <p>If you are a contracted client, please reach out through our hotline.<br>Thank you.</p>
+      <p>If you are a contracted client,<br />please reach out through our hotline.<br />Thank you.</p>
     </div>
   </div>
 </body>
