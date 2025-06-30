@@ -1,0 +1,135 @@
+@import '../styles/variables.css';
+
+.section {
+  padding: var(--section-padding);
+  background: var(--color-background);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section:nth-child(even) {
+  background: var(--color-surface);
+}
+
+.section-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Background */
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.section-background .background-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.section-background .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 180, 216, 0.3) 50%,
+    rgba(0, 119, 182, 0.4) 100%
+  );
+}
+
+/* Content */
+.section-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: white;
+}
+
+.section-text {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl));
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-description {
+  font-size: clamp(var(--text-base), 2.5vw, var(--text-xl));
+  color: var(--color-secondary);
+  margin-bottom: var(--space-10);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+}
+
+.section-children {
+  margin-top: var(--space-8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: calc(var(--section-padding) / 2) 0;
+  }
+  
+  .section-container {
+    padding: 0 var(--space-4);
+  }
+  
+  .section-title {
+    min-height: 80px;
+  }
+  
+  .section-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: var(--text-2xl);
+    min-height: 60px;
+  }
+  
+  .section-description {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Animation for background on hover */
+.section:hover .background-image {
+  transform: scale(1.05);
+} 

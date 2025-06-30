@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "VMS Holdings",
+  "name": "VMS Holdings - 지속가능한 해양산업의 미래",
+  "description": "Vessel Maritimus-welfare Service. 지속가능한 해양산업을 위한 혁신적인 솔루션을 제공합니다.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,9 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00b4d8",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "ko"
 }

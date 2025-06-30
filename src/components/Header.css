@@ -1,0 +1,472 @@
+@import '../styles/variables.css';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.logo {
+  font-family: var(--font-family-mono);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+/* Desktop Navigation */
+.nav-desktop {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.nav-desktop a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  padding: var(--space-2) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width var(--transition-fast);
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a.active::after {
+  width: 100%;
+}
+
+.nav-desktop a:hover {
+  color: var(--color-primary);
+}
+
+.nav-desktop a.active {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* CTA Button */
+.cta-button {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  z-index: 1001;
+}
+
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-primary);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: var(--color-primary);
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  bottom: -6px;
+}
+
+.hamburger.open {
+  background: transparent;
+}
+
+.hamburger.open::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+/* Mobile Navigation */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--color-background);
+  border-left: 1px solid var(--color-border);
+  padding: calc(var(--header-height) + var(--space-6)) var(--space-6) var(--space-6);
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.nav-mobile a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-mobile a:hover,
+.nav-mobile a.active {
+  color: var(--color-primary);
+  padding-left: var(--space-4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-desktop,
+  .cta-button {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav-mobile.open {
+    display: flex;
+  }
+  
+  .header-container {
+    padding: 0 var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 var(--space-3);
+  }
+  
+  .logo {
+    font-size: var(--text-lg);
+  }
+  
+  .nav-mobile {
+    width: 100%;
+    padding: calc(var(--header-height) + var(--space-4)) var(--space-4) var(--space-4);
+  }
+}
+
+.palantir-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+}
+
+.header-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.get-started-btn, .icon-btn {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.get-started-btn {
+  width: 180px;
+}
+
+.icon-btn {
+  width: 60px;
+}
+
+.get-started-btn .header-btn-img {
+  max-width: 130px;
+}
+
+.icon-btn + .icon-btn {
+  margin-left: 0;
+}
+
+@media (max-width: 2100px) {
+  .palantir-floating-header {
+    max-width: 99vw;
+    padding: 0 16px;
+  }
+}
+@media (max-width: 700px) {
+  .palantir-floating-header {
+    height: 54px;
+    padding: 0 4px;
+    border-radius: 12px;
+  }
+  .header-logo {
+    height: 28px;
+  }
+  .get-started-btn, .icon-btn {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    min-width: 36px;
+    min-height: 36px;
+    height: 36px;
+    border-radius: 7px;
+  }
+  .get-started-btn {
+    padding: 0 16px;
+  }
+  .icon-btn {
+    padding: 0 8px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.palantir-floating-header-wrapper {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.palantir-floating-header {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.15);
+  padding-left: 0;
+  padding-right: 32px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.header-logo-area {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+
+.header-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.header-logo-text {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.get-started-btn, .icon-btn {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.get-started-btn {
+  width: 180px;
+}
+
+.icon-btn {
+  width: 60px;
+}
+
+.get-started-btn .header-btn-img {
+  max-width: 130px;
+}
+
+.icon-btn + .icon-btn {
+  margin-left: 0;
+}
+
+@media (max-width: 2100px) {
+  .palantir-floating-header {
+    max-width: 99vw;
+    padding: 0 16px;
+  }
+}
+@media (max-width: 700px) {
+  .palantir-floating-header {
+    height: 54px;
+    padding: 0 4px;
+    border-radius: 12px;
+  }
+  .header-logo {
+    height: 28px;
+  }
+  .get-started-btn, .icon-btn {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    min-width: 36px;
+    min-height: 36px;
+    height: 36px;
+    border-radius: 7px;
+  }
+  .get-started-btn {
+    padding: 0 16px;
+  }
+  .icon-btn {
+    padding: 0 8px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.palantir-floating-header-wrapper {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.palantir-floating-header {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.15);
+  padding-left: 0;
+  padding-right: 32px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.header-logo-area {
+  display: flex;
+  align-items: center;
+  margin-left: 20PX;
+} 
