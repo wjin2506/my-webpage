@@ -1,73 +1,63 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import Section from "./components/Section";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import GeneralSection from './components/GeneralSection';
+import OurPlatforms from './components/OurPlatforms';
+import Carrers from './components/Carrers';
+import Demo from './components/Demo';
+import Footer from './components/Footer';
+import GeneralPage from './components/GeneralPage';
+import Platform from './components/Platform';
+import './App.css';
 
-function App() {
-  const [activeSection, setActiveSection] = useState("home");
-
-  const handleSetActive = (to) => {
-    setActiveSection(to);
-  };
-
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + "/app-release.apk";
-    link.download = "app-release.apk";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const sections = [
-    {
-      id: "about",
-      typingWords: [
-        "지속가능한 해양산업",
-        "특수성을 이해하고 최적화된 솔루션 제공"
-      ],
-      desc: "우리는 사람을 이해하고 지속가능한 해양산업을 만듭니다."
-    },
-    {
-      id: "business",
-      typingWords: [
-        "Business Area",
-        "스타트업 빠른 대응, 사람이 미래다"
-      ],
-      desc: "VMS는 스타트업의 빠른 움직임으로 미래를 엽니다."
-    },
-    {
-      id: "joining",
-      typingWords: [
-        "Oceanlife",
-        "특수 근로환경에 최적화된 Life Chain 생태계"
-      ],
-      desc: "우리의 기술로 더 나은 해양 환경을 만들어갑니다."
+function AppContent() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // 모든 페이지 클래스 제거
+    document.body.classList.remove('general-page', 'platform-page');
+    
+    // 현재 페이지에 맞는 클래스 추가
+    if (location.pathname === '/general') {
+      document.body.classList.add('general-page');
+    } else if (location.pathname === '/platform') {
+      document.body.classList.add('platform-page');
     }
-  ];
+    
+    // 컴포넌트 언마운트 시 클래스 제거
+    return () => {
+      document.body.classList.remove('general-page', 'platform-page');
+    };
+  }, [location.pathname]);
 
   return (
     <div className="App">
-      {/* Header */}
-      <Header 
-        activeSection={activeSection} 
-        onSetActive={handleSetActive} 
-      />
-
-      {/* Hero Section */}
-      <HeroSection onDownload={handleDownload} />
-
-      {/* Content Sections */}
-      {sections.map((section) => (
-        <Section
-          key={section.id}
-          id={section.id}
-          typingWords={section.typingWords}
-          desc={section.desc}
-        />
-      ))}
+      <Routes>
+        <Route path="/general" element={<GeneralPage />} />
+        <Route path="/platform" element={<Platform />} />
+        <Route path="/" element={
+          <>
+            <Header />
+            <HeroSection />
+            <GeneralSection />
+            <OurPlatforms />
+            <Carrers />
+            <Demo />
+            <Footer />
+          </>
+        } />
+      </Routes>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

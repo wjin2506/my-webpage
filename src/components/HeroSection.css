@@ -11,7 +11,11 @@
   align-items: center;
   justify-content: center;
   padding-top: 64px;
+  z-index: 1;
 }
+
+
+
 
 .hero-video-background {
   position: absolute;
@@ -102,10 +106,44 @@
 
 @media (max-width: 600px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 48px;
+    line-height: 110%;
+    margin-bottom: 16px;
   }
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 20px;
+    line-height: 130%;
+    margin-bottom: 0;
+  }
+  
+  .hero-section {
+    padding-top: 60px;
+    min-height: 500px;
+  }
+  
+  .hero-text-container {
+    padding: 0 var(--container-padding-mobile);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 36px;
+    line-height: 105%;
+    margin-bottom: 12px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 125%;
+  }
+  
+  .hero-section {
+    min-height: 450px;
+  }
+  
+  .hero-text-container {
+    padding: 0 var(--container-padding-small);
   }
 }
 
@@ -199,28 +237,6 @@
   
   .scroll-indicator {
     bottom: -60px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: var(--text-3xl);
-    min-height: 80px;
-  }
-  
-  .hero-description {
-    font-size: var(--text-base);
-  }
-  
-  .primary-button,
-  .secondary-button {
-    padding: var(--space-3) var(--space-6);
-    font-size: var(--text-xs);
-  }
-  
-  .hero-badge {
-    font-size: var(--text-xs);
-    padding: var(--space-1) var(--space-3);
   }
 }
 

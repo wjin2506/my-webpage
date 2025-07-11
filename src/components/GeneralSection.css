@@ -1,0 +1,213 @@
+@import '../styles/variables.css';
+
+.general-section {
+  background: #eeeeee;
+  padding: 60px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.general-tabs-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 40px;
+}
+
+.general-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.general-tab {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.general-tab.active {
+  background: #222;
+  color: #fff;
+}
+
+.see-all-btn {
+  background: #fff;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.general-image-wrapper {
+  width: 100%;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+.general-main-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.general-image-overlay {
+  position: absolute;
+  top: 24px;
+  left: 64px;
+  background: rgba(40,40,40,0.7);
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.general-image-label {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.general-image-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.fade-slide {
+  animation: fadeInSlide 0.5s;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1440px) {
+  .general-tabs-row {
+    padding: 0 30px;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 30px;
+  }
+  
+  .general-image-overlay {
+    left: 54px;
+  }
+}
+
+@media (max-width: 768px) {
+  .general-section {
+    padding: 40px 0 60px 0;
+  }
+  
+  .general-tabs-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 0 20px;
+  }
+  
+  .general-tabs {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .general-tab {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+  
+  .see-all-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 20px;
+  }
+  
+  .general-image-overlay {
+    top: 16px;
+    left: 36px;
+    right: 36px;
+    padding: 10px 16px;
+  }
+  
+  .general-image-label {
+    font-size: 0.85rem;
+  }
+  
+  .general-image-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .general-section {
+    padding: 30px 0 45px 0;
+  }
+  
+  .general-tabs-row {
+    padding: 0 15px;
+  }
+  
+  .general-tabs {
+    gap: 6px;
+  }
+  
+  .general-tab {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    min-width: 100px;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 15px;
+  }
+  
+  .general-image-overlay {
+    top: 12px;
+    left: 27px;
+    right: 27px;
+    padding: 8px 12px;
+  }
+  
+  .general-image-label {
+    font-size: 0.8rem;
+  }
+  
+  .general-image-title {
+    font-size: 1rem;
+  }
+} 

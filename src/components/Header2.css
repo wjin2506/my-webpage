@@ -1,0 +1,146 @@
+/* Header2 - General 페이지 전용 투명 헤더 */
+.header2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  height: 80px;
+}
+
+.header2-content {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  gap: 20px;
+}
+
+.header2-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header2-logo {
+  height: 40px;
+  width: auto;
+}
+
+.header2-center {
+  flex: 0 0 auto;
+}
+
+.header2-get-started-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header2-get-started-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.header2-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.header2-icon-btn {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.header2-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.header2-icon-btn svg {
+  stroke: #333;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .header2-content {
+    padding: 16px 24px;
+  }
+  
+  .header2-logo {
+    height: 32px;
+  }
+  
+  .header2-get-started-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    height: 36px;
+  }
+  
+  .header2-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .header2-right {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header2 {
+    height: 70px;
+  }
+  
+  .header2-content {
+    padding: 12px 20px;
+    height: 70px;
+  }
+  
+  .header2-logo {
+    height: 28px;
+  }
+  
+  .header2-get-started-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    height: 32px;
+  }
+  
+  .header2-icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .header2-right {
+    gap: 8px;
+  }
+} 
