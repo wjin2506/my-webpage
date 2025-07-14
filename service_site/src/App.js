@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import GeneralSection from './components/GeneralSection';
-import OurPlatforms from './components/OurPlatforms';
+import MissionSection from './pages/Home/MissionSection';
 import Carrers from './components/Carrers';
 import CTASection from './pages/Home/CTASection';
 import Footer from './components/Footer';
@@ -43,7 +43,7 @@ function AppContent() {
             <main>
               <HeroSection />
               <GeneralSection />
-              <OurPlatforms />
+              <MissionSection />
               <Carrers />
               <CTASection />
             </main>

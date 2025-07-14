@@ -54,8 +54,8 @@ const OurPlatforms = () => {
                 src={process.env.PUBLIC_URL + "/image/img_logo_simbol_wiser.svg"} 
                 alt="WISER Platform" 
                 className="platform-image"
-              />
-            </div>
+                  />
+                </div>
           </div>
           <div className="platform-right">
             <h3 className="platform-name-large">WISER</h3>
@@ -71,7 +71,7 @@ const OurPlatforms = () => {
                   Unlock access, surface hidden opportunities, and drive smarter efficiency
                 </p>
                 <p className="platform-number">03</p>
-              </div>
+                </div>
               <div className="sim-icons-container">
                 <img 
                   src={process.env.PUBLIC_URL + "/image/img_vector_gray_100.svg"} 
