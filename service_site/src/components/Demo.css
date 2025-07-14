@@ -1,0 +1,872 @@
+@import '../styles/variables.css';
+
+/* Demo 섹션 */
+.demo-section {
+  width: 100%;
+  height: 420px;
+  background: #ffffff;
+  padding: 80px 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Demo 컨테이너 (사각형) */
+.demo-container {
+  width: 100%;
+  height: 260px;
+  background: #ffffff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 0px;
+  border-right: 0px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* 버튼 섹션 */
+.demo-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.demo-btn {
+  padding: 20px 40px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 300px;
+  justify-content: space-between;
+}
+
+.demo-btn.request {
+  background: #c0c0c0;
+  color: #333;
+}
+
+.demo-btn.building {
+  background: #333;
+  color: #fff;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1440px) {
+  .demo-container {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .demo-section {
+    height: auto;
+    padding: 60px 0;
+  }
+  
+  .demo-container {
+    height: auto;
+    padding: 30px 20px;
+    flex-direction: column;
+  }
+  
+  .demo-buttons {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .demo-btn {
+    width: 100%;
+    max-width: 350px;
+    min-width: 0;
+    padding: 18px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .demo-section {
+    height: auto;
+    padding: 40px 0;
+  }
+  
+  .demo-container {
+    height: auto;
+    padding: 20px 15px;
+  }
+  
+  .demo-btn {
+    padding: 15px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 모달 오버레이 */
+.demo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 모달 컨테이너 */
+.demo-modal-container {
+  background: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 모달 헤더 */
+.demo-modal-header {
+  padding: 30px 40px 20px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.demo-request-label {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.demo-main-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.demo-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.demo-modal-close:hover {
+  color: #333;
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+/* 로고 영역 */
+.demo-logo-area {
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.demo-logo-placeholder {
+  border: 2px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.demo-logo-placeholder p {
+  margin: 0;
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.demo-logo-placeholder p:first-child {
+  margin-bottom: 3px;
+}
+
+/* 파일 업로드 영역 */
+.demo-file-upload-area {
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.file-upload-zone {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-upload-zone:hover {
+  border-color: #4A90E2;
+  background: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+}
+
+.upload-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  margin: 0 0 3px 0;
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.upload-subtext {
+  margin: 0 0 15px 0;
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.upload-instruction {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+/* 업로드된 파일 목록 */
+.uploaded-files-list {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.uploaded-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.uploaded-file-item:last-child {
+  margin-bottom: 0;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.file-name {
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+}
+
+.file-size {
+  font-size: 11px;
+  color: #666;
+}
+
+.remove-file-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.remove-file-btn:hover {
+  background: #ff3742;
+}
+
+/* 폼 스타일 */
+.demo-form {
+  padding: 20px 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* 파일 첨부 상태 알림 */
+.demo-form.files-attached::before {
+  content: "Files attached - Contact fields are hidden";
+  display: block;
+  background: #e8f4fd;
+  color: #2c5aa0;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid #b3d9ff;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* 체크박스 그룹 */
+.checkbox-group {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+/* 제출 버튼 */
+.demo-submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: #4A90E2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.demo-submit-btn:hover {
+  background: #357ABD;
+}
+
+.demo-submit-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.demo-submit-btn:disabled:hover {
+  background: #cccccc;
+}
+
+/* 연락처 정보 */
+.demo-contact-info {
+  padding: 30px 40px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+.contact-section {
+  margin-bottom: 25px;
+}
+
+.contact-section:last-child {
+  margin-bottom: 0;
+}
+
+.contact-section h4 {
+  font-size: 11px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.contact-section p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.office-locations {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.office-locations span {
+  font-size: 12px;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+/* 오피스 위치 그리드 */
+.office-locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.office-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.office-country {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.office-cities {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.office-city {
+  font-size: 14px;
+  color: #333;
+  font-weight: normal;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .demo-modal-container {
+    width: 90%;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+  
+  .demo-modal-header {
+    padding: 25px 30px;
+  }
+  
+  .demo-main-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  
+  .file-upload-zone {
+    padding: 30px 20px;
+  }
+  
+  .upload-text {
+    font-size: 14px;
+  }
+  
+  .upload-subtext {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-modal-container {
+    width: 95%;
+    max-width: none;
+    margin: 5px;
+    max-height: 98vh;
+    overflow-y: auto;
+  }
+  
+  .demo-modal-header,
+  .demo-logo-area,
+  .demo-form,
+  .demo-contact-info {
+    padding: 20px 25px;
+  }
+  
+  .demo-main-title {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  
+  .demo-request-label {
+    font-size: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .file-upload-zone {
+    padding: 25px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-text {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .upload-subtext {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  
+  .upload-instruction {
+    font-size: 11px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 14px 12px;
+    font-size: 16px; /* iOS zoom 방지 */
+    border-radius: 8px;
+  }
+  
+  .form-group label {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  
+  .checkbox-group {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .checkbox-label {
+    margin-bottom: 0;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+  }
+  
+  .checkbox-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .demo-submit-btn {
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .office-locations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-locations {
+    gap: 6px;
+  }
+  
+  .office-locations span {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .contact-section {
+    margin-bottom: 25px;
+  }
+  
+  .contact-section h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .contact-section p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-modal-overlay {
+    padding: 0;
+  }
+  
+  .demo-modal-container {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+  
+  .demo-modal-header,
+  .demo-logo-area,
+  .demo-form,
+  .demo-contact-info {
+    padding: 15px 20px;
+  }
+  
+  .demo-modal-close {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .demo-main-title {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  
+  .demo-request-label {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+  
+  .file-upload-zone {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .upload-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .upload-text {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .upload-subtext {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .upload-instruction {
+    font-size: 10px;
+  }
+  
+  .uploaded-file-item {
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .file-name {
+    font-size: 12px;
+  }
+  
+  .file-size {
+    font-size: 10px;
+  }
+  
+  .remove-file-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+  
+  .form-group {
+    margin-bottom: 18px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 16px 14px;
+    font-size: 16px; /* iOS zoom 방지 */
+    border-radius: 10px;
+  }
+  
+  .form-group label {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+  }
+  
+  .checkbox-group {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .checkbox-label {
+    margin-bottom: 0;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .checkbox-text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .demo-submit-btn {
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 25px;
+  }
+  
+  .contact-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .contact-section:last-child {
+    border-bottom: none;
+  }
+  
+  .contact-section h4 {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  
+  .contact-section p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  .office-country {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .office-city {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+}

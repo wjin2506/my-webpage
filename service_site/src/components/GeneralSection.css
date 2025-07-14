@@ -1,0 +1,418 @@
+@import '../styles/variables.css';
+
+.general-section {
+  background: #eeeeee;
+  padding: 60px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.general-tabs-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 40px;
+}
+
+.general-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.general-tab {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tab-text-back {
+  color: #222;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-text-front {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--progress, 0%)) 0 0);
+  transition: clip-path 0.1s linear;
+}
+
+
+
+.general-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: #222;
+  transition: width 0.1s linear;
+  z-index: -1;
+}
+
+.general-tab:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+.general-tab.active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.general-tab.active::before {
+  background: #222;
+}
+
+.see-all-btn {
+  background: #fff;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.see-all-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.general-image-wrapper {
+  width: 100%;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-image-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.general-image-link:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.general-main-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.general-image-overlay {
+  position: absolute;
+  top: 24px;
+  left: 64px;
+  background: rgba(40,40,40,0.7);
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.general-image-label {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.general-image-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* 슬라이드 전환 애니메이션 제거 (이제 CSS transform으로 처리) */
+
+/* 캐러셀 컨테이너 */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+/* 캐러셀 트랙 */
+.carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* 개별 슬라이드 */
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  transform: translateZ(0); /* GPU 가속 */
+  pointer-events: none; /* 드래그 중 이벤트 방지 */
+}
+
+.carousel-slide * {
+  pointer-events: auto; /* 자식 요소들은 이벤트 허용 */
+}
+
+/* 캐러셀 화살표 */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow-left {
+  left: 60px;
+}
+
+.carousel-arrow-right {
+  right: 60px;
+}
+
+/* 캐러셀 인디케이터 */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.carousel-indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 인디케이터 원형 프로그레스 */
+.indicator-progress {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid #00b4d8;
+  transition: transform 0.1s linear;
+  animation: none;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1440px) {
+  .general-tabs-row {
+    padding: 0 30px;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 30px;
+  }
+  
+  .general-image-overlay {
+    left: 54px;
+  }
+}
+
+@media (max-width: 768px) {
+  .general-section {
+    padding: 40px 0 60px 0;
+  }
+  
+  .general-tabs-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 0 20px;
+  }
+  
+  .general-tabs {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .general-tab {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+  
+  .see-all-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 20px;
+  }
+  
+  .general-image-overlay {
+    top: 16px;
+    left: 36px;
+    right: 36px;
+    padding: 10px 16px;
+  }
+  
+  .general-image-label {
+    font-size: 0.85rem;
+  }
+  
+  .general-image-title {
+    font-size: 1.1rem;
+  }
+
+  /* 모바일 캐러셀 화살표 */
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .carousel-arrow-left {
+    left: 10px;
+  }
+
+  .carousel-arrow-right {
+    right: 10px;
+  }
+
+  /* 모바일 인디케이터 */
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* 모바일 프로그레스 바 - 제거됨 */
+}
+
+@media (max-width: 480px) {
+  .general-section {
+    padding: 30px 0 45px 0;
+  }
+  
+  .general-tabs-row {
+    padding: 0 15px;
+  }
+  
+  .general-tabs {
+    gap: 6px;
+  }
+  
+  .general-tab {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    min-width: 100px;
+  }
+  
+  .general-image-wrapper {
+    padding: 0 15px;
+  }
+  
+  .general-image-overlay {
+    top: 12px;
+    left: 27px;
+    right: 27px;
+    padding: 8px 12px;
+  }
+  
+  .general-image-label {
+    font-size: 0.8rem;
+  }
+  
+  .general-image-title {
+    font-size: 1rem;
+  }
+} 
