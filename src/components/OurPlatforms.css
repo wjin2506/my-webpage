@@ -58,72 +58,73 @@
   color: #00b4d8;
 }
 
-.platforms-list-figma {
+.platforms-list-vertical {
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   background: #fff;
   padding: 0 40px;
-}
-
-.platform-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  min-height: 140px;
-  padding: 48px 0 48px 0;
-  width: 100%;
-  position: relative;
   gap: 0;
 }
-.platform-left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 40px;
-}
-.logo-placeholder-figma {
-  width: 64px;
-  height: 64px;
-  background: #e0e0e0;
-  border-radius: 16px;
-  opacity: 0.6;
-}
-.desc-num-wrap {
+
+.platform-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  padding: 60px 0;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.platform-desc-figma {
-  font-size: 1.1rem;
-  color: #888;
-  font-weight: 400;
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-.platform-number-figma {
+
+.platform-number-top {
+  position: absolute;
+  top: 60px;
+  right: 0;
   font-size: 1rem;
   color: #bbb;
   font-weight: 600;
   letter-spacing: 1px;
+  z-index: 10;
 }
-.platform-name-figma {
-  text-align: right;
-  font-size: 3.6rem;
+
+.platform-video-container {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.platform-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.platform-content {
+  text-align: left;
+}
+
+.platform-name-vertical {
+  font-size: 4rem;
   font-weight: 700;
   color: #222;
+  margin-bottom: 20px;
+  line-height: 1.1;
   letter-spacing: -2px;
-  padding-right: 40px;
 }
-.platform-divider {
-  width: 100%;
-  height: 1px;
-  background: #e8e8e8;
+
+.platform-desc-vertical {
+  font-size: 1.1rem;
+  color: #888;
+  font-weight: 400;
+  line-height: 1.4;
   margin: 0;
 }
 
-.platform-row-link {
+.platform-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -131,16 +132,25 @@
   cursor: pointer;
 }
 
-.platform-row-link:hover {
-  transform: translateX(5px);
+.platform-card-link:hover {
+  transform: translateY(-5px);
 }
 
-.platform-row-link:hover .platform-name-figma {
+.platform-card-link:hover .platform-name-vertical {
   color: #00b4d8;
 }
 
-.platform-row-link:hover .platform-desc-figma {
+.platform-card-link:hover .platform-desc-vertical {
   color: #555;
+}
+
+.platform-divider-vertical {
+  width: 100%;
+  height: 1px;
+  background: #e8e8e8;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 @media (max-width: 1440px) {
@@ -152,7 +162,7 @@
     padding: 0 30px;
   }
   
-  .platforms-list-figma {
+  .platforms-list-vertical {
     padding: 0 30px;
   }
 }
@@ -166,26 +176,26 @@
     padding: 20px;
   }
   
-  .platforms-list-figma {
+  .platforms-list-vertical {
     padding: 0 20px;
   }
   
-  .platform-row {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 32px 0 32px 0;
-    gap: 20px;
+  .platform-card {
+    padding: 40px 0;
   }
   
-  .platform-name-figma {
-    text-align: left;
-    font-size: 2.2rem;
-    margin-top: 8px;
-    padding-right: 0;
+  .platform-number-top {
+    top: 40px;
   }
   
-  .platform-left {
-    gap: 20px;
+  .platform-video-container {
+    height: 200px;
+    margin-bottom: 30px;
+  }
+  
+  .platform-name-vertical {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
   }
   
   .our-platforms-title {
@@ -204,7 +214,24 @@
     padding: 0 15px;
   }
   
-  .platforms-list-figma {
+  .platforms-list-vertical {
     padding: 0 15px;
+  }
+  
+  .platform-card {
+    padding: 30px 0;
+  }
+  
+  .platform-number-top {
+    top: 30px;
+  }
+  
+  .platform-video-container {
+    height: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .platform-name-vertical {
+    font-size: 2rem;
   }
 } 

@@ -99,10 +99,12 @@ const Header = () => {
               </button>
               <button 
                 className="mobile-header-btn"
-                onClick={() => setIsFullNavOpen(true)}
+                onClick={(e) => e.preventDefault()}
                 aria-expanded={isFullNavOpen}
                 aria-controls="full-navigation"
                 aria-label="Search"
+                style={{cursor: 'not-allowed'}}
+                disabled
               >
                 <img
                   src={process.env.PUBLIC_URL + "/image/header2.png"}
@@ -195,7 +197,9 @@ const Header = () => {
                  aria-label="Search"
                  aria-expanded={isFullNavOpen}
                  aria-controls="full-navigation"
-                 onClick={() => setIsFullNavOpen(true)}
+                 onClick={(e) => e.preventDefault()}
+                 style={{cursor: 'not-allowed'}}
+                 disabled
                >
                  <img
                    src={process.env.PUBLIC_URL + "/image/header2.png"}
@@ -247,8 +251,8 @@ const Header = () => {
                  <div className="nav-section">
                    <h3 className="nav-section-title">NAVIGATION</h3>
                    <ul className="nav-main-list">
-                     <li><Link to="/general" onClick={closeFullNav}>General</Link></li>
-                     <li><Link to="/platform" onClick={closeFullNav}>Our Platform</Link></li>
+                     <li><span style={{cursor: 'not-allowed'}}>General</span></li>
+                     <li><span style={{cursor: 'not-allowed'}}>Our Platform</span></li>
                      <li className="nav-sub-item"><a href="#oceanlife">↳ Oceanlife</a></li>
                      <li className="nav-sub-item"><a href="#wiser">↳ WISER</a></li>
                      <li className="nav-sub-item"><a href="#sim">↳ SIM</a></li>
