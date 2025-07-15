@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
   // 분기 3: 메모리 저장 - 전체 네비게이션 상태를 localStorage에 저장
   const [isFullNavOpen, setIsFullNavOpen] = useState(() => {
     const saved = localStorage.getItem('header-fullNavOpen');
@@ -18,41 +14,19 @@ const Header = () => {
   }, [isFullNavOpen]);
 
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
-
-  useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
         if (isFullNavOpen) {
           setIsFullNavOpen(false);
         }
-        if (isMobileMenuOpen) {
-          setIsMobileMenuOpen(false);
-        }
       }
     };
 
-    if (isFullNavOpen || isMobileMenuOpen) {
+    if (isFullNavOpen) {
       document.addEventListener('keydown', handleEscape);
       return () => document.removeEventListener('keydown', handleEscape);
     }
-  }, [isFullNavOpen, isMobileMenuOpen]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const toggleFullNav = () => {
-    setIsFullNavOpen(!isFullNavOpen);
-  };
+  }, [isFullNavOpen]);
 
   const closeFullNav = () => {
     // 분기 3: 전체 네비게이션 닫기 시 메모리에서도 업데이트
@@ -83,9 +57,9 @@ const Header = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                width: isMobile ? "120px" : "380px",
-                minWidth: isMobile ? "120px" : "380px",
-                maxWidth: isMobile ? "120px" : "380px",
+                width: "380px",
+                minWidth: "380px",
+                maxWidth: "380px",
                 height: "40px",
                 minHeight: "40px",
                 maxHeight: "40px",
@@ -101,7 +75,7 @@ const Header = () => {
             <button 
               className="icon-btn" 
               aria-label="Menu"
-              onClick={isMobile ? toggleMobileMenu : () => console.log('Menu clicked')}
+              onClick={() => console.log('Menu clicked')}
             >
               <img
                 src={process.env.PUBLIC_URL + "/image/header1.png"}
@@ -127,26 +101,6 @@ const Header = () => {
           </div>
         </header>
       </div>
-      
-      {/* 모바일 메뉴 (모바일에서만 표시) */}
-      {isMobile && (
-        <nav 
-          id="mobile-navigation"
-          className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}
-          role="navigation"
-          aria-label="Mobile navigation menu"
-          aria-hidden={!isMobileMenuOpen}
-        >
-          <div className="mobile-nav-content">
-            <a href="#home" className="mobile-nav-link" role="menuitem">Home</a>
-            <a href="#platforms" className="mobile-nav-link" role="menuitem">Our Platforms</a>
-            <a href="#careers" className="mobile-nav-link" role="menuitem">Careers</a>
-            <a href="#demo" className="mobile-nav-link" role="menuitem">Demo</a>
-            <a href="#contact" className="mobile-nav-link" role="menuitem">Contact</a>
-            <button className="mobile-cta-btn" role="menuitem">Get Started</button>
-          </div>
-        </nav>
-      )}
       
       {/* 전체 화면 네비게이션 메뉴 - 모바일/데스크톱 공통 */}
       {isFullNavOpen && (

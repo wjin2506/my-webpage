@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
   // 분기 3: 메모리 저장 - 전체 네비게이션 상태를 localStorage에 저장
   const [isFullNavOpen, setIsFullNavOpen] = useState(() => {
     const saved = localStorage.getItem('header-fullNavOpen');
@@ -18,41 +14,19 @@ const Header = () => {
   }, [isFullNavOpen]);
 
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
-
-  useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
         if (isFullNavOpen) {
           setIsFullNavOpen(false);
         }
-        if (isMobileMenuOpen) {
-          setIsMobileMenuOpen(false);
-        }
       }
     };
 
-    if (isFullNavOpen || isMobileMenuOpen) {
+    if (isFullNavOpen) {
       document.addEventListener('keydown', handleEscape);
       return () => document.removeEventListener('keydown', handleEscape);
     }
-  }, [isFullNavOpen, isMobileMenuOpen]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const toggleFullNav = () => {
-    setIsFullNavOpen(!isFullNavOpen);
-  };
+  }, [isFullNavOpen]);
 
   const closeFullNav = () => {
     // 분기 3: 전체 네비게이션 닫기 시 메모리에서도 업데이트
@@ -61,176 +35,75 @@ const Header = () => {
 
   return (
     <>
-      {isMobile ? (
-        /* 모바일 헤더 */
-        <div className="mobile-header-wrapper">
-          <header className="mobile-header">
-            <div className="mobile-logo">
-              <img
-                src={process.env.PUBLIC_URL + "/image/mobileLogo.png"}
-                alt="VMS Logo"
-                className="mobile-logo-img"
-              />
-            </div>
-            
-            {/* Header 이미지 버튼들을 헤더에 직접 배치 */}
-            <div className="mobile-header-buttons">
-              <button 
-                className="mobile-header-btn"
-                onClick={() => {
-                  // Demo 모달 열기 이벤트 발생
-                  window.dispatchEvent(new CustomEvent('openDemoModal'));
-                }}
-                aria-label="Get Started"
-              >
-                <img
-                  src={process.env.PUBLIC_URL + "/image/getstarted_main.png"}
-                  alt="Get Started"
-                  className="mobile-header-btn-img"
-                />
-              </button>
-              <button 
-                className="mobile-header-btn"
-                onClick={() => console.log('Menu clicked')}
-                aria-label="Menu"
-              >
-                <img
-                  src={process.env.PUBLIC_URL + "/image/header1.png"}
-                  alt="Menu"
-                  className="mobile-header-btn-img"
-                />
-              </button>
-              <button 
-                className="mobile-header-btn"
-                onClick={(e) => e.preventDefault()}
-                aria-expanded={isFullNavOpen}
-                aria-controls="full-navigation"
-                aria-label="Search"
-                style={{cursor: 'not-allowed'}}
-                disabled
-              >
-                <img
-                  src={process.env.PUBLIC_URL + "/image/header2.png"}
-                  alt="Search"
-                  className="mobile-header-btn-img"
-                />
-              </button>
-            </div>
-            
-            <button 
-              className="mobile-menu-toggle" 
-              onClick={toggleMobileMenu}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-navigation"
-              aria-label="Toggle navigation menu"
+      {/* 웹 헤더를 모바일/데스크톱 모두 동일하게 사용 */}
+      <div className="palantir-floating-header-wrapper">
+        <header className="palantir-floating-header">
+          <div className="header-logo-area">
+            <img
+              src={process.env.PUBLIC_URL + "/image/image2.png"}
+              alt="VMS Holdings Logo"
+              className="header-logo"
+            />
+          </div>
+          <div className="header-actions">
+            <button
+              className="get-started-btn"
+              onClick={() => {
+                // Demo 모달 열기 이벤트 발생
+                window.dispatchEvent(new CustomEvent('openDemoModal'));
+              }}
+              aria-label="Get Started"
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/image/getstarted_main.png"
+                })`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "380px",
+                minWidth: "380px",
+                maxWidth: "380px",
+                height: "40px",
+                minHeight: "40px",
+                maxHeight: "40px",
+              }}
             >
-              <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}></span>
-            </button>
-          </header>
-          
-          {/* 모바일 메뉴 */}
-          <nav 
-            id="mobile-navigation"
-            className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}
-            role="navigation"
-            aria-label="Mobile navigation menu"
-            aria-hidden={!isMobileMenuOpen}
-          >
-            <div className="mobile-nav-content">
-              <a href="#home" className="mobile-nav-link" role="menuitem">Home</a>
-              <a href="#platforms" className="mobile-nav-link" role="menuitem">Our Platforms</a>
-              <a href="#careers" className="mobile-nav-link" role="menuitem">Careers</a>
-              <a href="#demo" className="mobile-nav-link" role="menuitem">Demo</a>
-              <a href="#contact" className="mobile-nav-link" role="menuitem">Contact</a>
-              <button 
-                className="mobile-cta-btn" 
-                role="menuitem"
-                onClick={() => {
-                  // Demo 모달 열기 이벤트 발생
-                  window.dispatchEvent(new CustomEvent('openDemoModal'));
-                  setIsMobileMenuOpen(false); // 모바일 메뉴 닫기
-                }}
-              >
-                <img
-                  src={process.env.PUBLIC_URL + "/image/getstarted_main.png"}
-                  alt="Get Started"
-                  className="mobile-cta-btn-img"
-                />
-              </button>
-            </div>
-          </nav>
-        </div>
-      ) : (
-        /* 데스크톱 헤더 */
-        <div className="palantir-floating-header-wrapper">
-          <header className="palantir-floating-header">
-            <div className="header-logo-area">
               <img
-                src={process.env.PUBLIC_URL + "/image/image2.png"}
-                alt="VMS Holdings Logo"
-                className="header-logo"
+                src={process.env.PUBLIC_URL + "/image/getstarted_main.png"}
+                alt="Get Started"
+                className="header-btn-img"
+                style={{ display: "none" }}
               />
-            </div>
-                         <div className="header-actions">
-               <button
-                 className="get-started-btn"
-                 onClick={() => {
-                   // Demo 모달 열기 이벤트 발생
-                   window.dispatchEvent(new CustomEvent('openDemoModal'));
-                 }}
-                 aria-label="Get Started"
-                 style={{
-                   backgroundImage: `url(${
-                     process.env.PUBLIC_URL + "/image/getstarted_main.png"
-                   })`,
-                   backgroundSize: "cover",
-                   backgroundPosition: "center",
-                   backgroundRepeat: "no-repeat",
-                   width: "380px",
-                   minWidth: "380px",
-                   maxWidth: "380px",
-                   height: "40px",
-                   minHeight: "40px",
-                   maxHeight: "40px",
-                 }}
-               >
-                 <img
-                   src={process.env.PUBLIC_URL + "/image/getstarted_main.png"}
-                   alt="Get Started"
-                   className="header-btn-img"
-                   style={{ display: "none" }}
-                 />
-               </button>
-               <button 
-                 className="icon-btn" 
-                 aria-label="Menu"
-                 onClick={() => console.log('Desktop Menu clicked')}
-               >
-                 <img
-                   src={process.env.PUBLIC_URL + "/image/header1.png"}
-                   alt="Menu"
-                   className="header-btn-img"
-                 />
-               </button>
-               <button 
-                 className="icon-btn" 
-                 aria-label="Search"
-                 aria-expanded={isFullNavOpen}
-                 aria-controls="full-navigation"
-                 onClick={(e) => e.preventDefault()}
-                 style={{cursor: 'not-allowed'}}
-                 disabled
-               >
-                 <img
-                   src={process.env.PUBLIC_URL + "/image/header2.png"}
-                   alt="Search"
-                   className="header-btn-img"
-                 />
-               </button>
-             </div>
-          </header>
-                 </div>
-      )}
+            </button>
+            <button 
+              className="icon-btn" 
+              aria-label="Menu"
+              onClick={() => console.log('Menu clicked')}
+            >
+              <img
+                src={process.env.PUBLIC_URL + "/image/header1.png"}
+                alt="Menu"
+                className="header-btn-img"
+              />
+            </button>
+            <button 
+              className="icon-btn" 
+              aria-label="Search"
+              aria-expanded={isFullNavOpen}
+              aria-controls="full-navigation"
+              onClick={(e) => e.preventDefault()}
+              style={{cursor: 'not-allowed'}}
+              disabled
+            >
+              <img
+                src={process.env.PUBLIC_URL + "/image/header2.png"}
+                alt="Search"
+                className="header-btn-img"
+              />
+            </button>
+          </div>
+        </header>
+      </div>
       
       {/* 전체 화면 네비게이션 메뉴 - 모바일/데스크톱 공통 */}
       {isFullNavOpen && (

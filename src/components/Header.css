@@ -549,104 +549,84 @@
 @media (max-width: 768px) {
   .palantir-floating-header-wrapper {
     display: block;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+  }
+  
+  .palantir-floating-header {
+    padding: 10px 20px;
+    height: 60px;
+    margin: 0;
+    border-radius: 10px;
+  }
+  
+  .header-logo-area {
+    flex-shrink: 0;
+  }
+  
+  .header-logo {
+    height: 30px;
+    width: auto;
   }
   
   /* 모바일 헤더 버튼 크기 조정 */
   .palantir-floating-header .header-actions {
     gap: 8px;
+    flex-shrink: 0;
   }
   
   .palantir-floating-header .icon-btn {
     width: 32px;
     height: 32px;
+    padding: 4px;
   }
   
   .palantir-floating-header .icon-btn img {
     width: 20px;
     height: 20px;
   }
+  
+  .palantir-floating-header .get-started-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: 100px;
+    width: 120px !important;
+    max-width: 120px !important;
+    min-width: 120px !important;
+  }
+}
+
+/* 태블릿 크기 (769px ~ 1024px) 추가 스타일 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .palantir-floating-header-wrapper {
+    top: 30px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+  }
+  
+  .palantir-floating-header {
+    padding: 12px 30px;
+    height: 65px;
+  }
+  
+  .header-logo {
+    height: 35px;
+    width: auto;
+  }
+  
+  .palantir-floating-header .get-started-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    min-width: 200px;
+  }
 }
 
 
 
-.mobile-cta-btn {
-  background: #00b4d8;
-  color: white;
-  border: none;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.2s ease;
-}
-
-.mobile-cta-btn:hover {
-  background: #0095b8;
-}
-
-/* 모바일 네비게이션 */
-.mobile-nav {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background: rgba(49, 49, 49, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transform: translateY(-100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-.mobile-nav.open {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-}
-
-.mobile-nav-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mobile-nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: color 0.2s ease;
-}
-
-.mobile-nav-link:hover {
-  color: #00b4d8;
-}
-
-.mobile-cta-btn {
-  background: #00b4d8;
-  color: white;
-  border: none;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.2s ease;
-}
-
-.mobile-cta-btn:hover {
-  background: #0095b8;
-}
-
-/* 중복 CSS 제거 - 위에서 이미 정의됨 */
+/* 모바일 메뉴 관련 CSS 제거 - 웹 헤더만 사용 */
 
 /* 전체 화면 네비게이션 */
 .full-nav-overlay {
