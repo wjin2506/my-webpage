@@ -545,14 +545,25 @@
   filter: brightness(0) invert(1);
 }
 
-/* 모바일에서 기존 헤더 숨기기 */
+/* 모바일에서도 웹 헤더 표시 */
 @media (max-width: 768px) {
   .palantir-floating-header-wrapper {
-    display: none !important;
+    display: block;
   }
   
-  .mobile-header-wrapper {
-    display: block;
+  /* 모바일 헤더 버튼 크기 조정 */
+  .palantir-floating-header .header-actions {
+    gap: 8px;
+  }
+  
+  .palantir-floating-header .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .palantir-floating-header .icon-btn img {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -635,16 +646,7 @@
   background: #0095b8;
 }
 
-/* 모바일에서 기존 헤더 숨기기 */
-@media (max-width: 768px) {
-  .palantir-floating-header-wrapper {
-    display: none !important;
-  }
-  
-  .mobile-header-wrapper {
-    display: block;
-  }
-}
+/* 중복 CSS 제거 - 위에서 이미 정의됨 */
 
 /* 전체 화면 네비게이션 */
 .full-nav-overlay {
