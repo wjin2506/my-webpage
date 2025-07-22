@@ -266,6 +266,26 @@
   width: auto;
   height: auto;
   display: block;
+  object-fit: contain;
+}
+
+/* 모바일에서 로고 크기 조정 */
+@media (max-width: 768px) {
+  .header-logo {
+    max-height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    max-height: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-logo {
+    max-height: 28px;
+  }
 }
 
 .header-actions {
@@ -297,15 +317,18 @@
 
 .get-started-btn {
   border: 1px solid rgba(255,255,255,0.10);
-  width: 40px;
   height: 40px;
   padding: 0;
   overflow: hidden;
-  min-width: 40px;
-  max-width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.45px;
+  color: #FFFFFF;
+  text-align: center;
 }
 
 .icon-btn {
@@ -319,6 +342,16 @@
   justify-content: center;
   padding: 0;
   border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+
+/* 메뉴 버튼(첫 번째 아이콘 버튼)의 이미지는 전체 영역을 채움 */
+.icon-btn:first-of-type .header-btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
 }
 
 .get-started-btn:hover, .icon-btn:hover {
@@ -333,7 +366,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(100) invert(1);
+  filter: brightness(0) invert(1);
 }
 
 /* 검색 버튼의 이미지만 흰색으로 표시 */
@@ -347,7 +380,7 @@
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0;
   padding: 0;
 }
@@ -559,56 +592,195 @@
   filter: brightness(0) invert(1);
 }
 
-/* 모바일에서도 웹 헤더 표시 */
+/* 모바일 반응형 헤더 */
 @media (max-width: 768px) {
   .palantir-floating-header-wrapper {
-    display: block;
     top: 20px;
-    left: 10px;
-    right: 10px;
+    left: 20px;
+    right: 20px;
     width: auto;
+  }
+  
+  .palantir-floating-header {
+    /* 웹 설정 그대로 유지 - height: 70px, padding: 15px 40px, border-radius: 15px */
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .header-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .header-actions {
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  
+  .get-started-btn {
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    height: 40px;
+    font-size: 13px;
+  }
+  
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  
+  .icon-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  /* 768px 이하에서 메뉴 버튼 이미지 가득 채움 */
+  .icon-btn:first-of-type img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .palantir-floating-header-wrapper {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+  }
+  
+  .get-started-btn {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    font-size: 12px;
+  }
+  
+  .header-logo {
+    height: 35px;
+  }
+}
+
+@media (max-width: 390px) {
+  .palantir-floating-header-wrapper {
+    top: 12px;
+    left: 12px;
+    right: 12px;
   }
   
   .palantir-floating-header {
     padding: 10px 20px;
     height: 60px;
-    margin: 0;
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
   }
   
   .header-logo-area {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
   
   .header-logo {
-    height: 30px;
+    height: 32px;
     width: auto;
+    object-fit: contain;
   }
   
-  /* 모바일 헤더 버튼 크기 조정 */
-  .palantir-floating-header .header-actions {
+  .header-actions {
+    display: flex;
+    align-items: center;
     gap: 8px;
     flex-shrink: 0;
   }
   
-  .palantir-floating-header .icon-btn {
-    width: 32px;
-    height: 32px;
-    padding: 4px;
+  .get-started-btn {
+    width: 140px !important;
+    min-width: 140px !important;
+    max-width: 140px !important;
+    height: 36px !important;
+    font-size: 11px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: none !important;
   }
   
-  .palantir-floating-header .icon-btn img {
+  .icon-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px;
+    border-radius: 8px;
+    border: none !important;
+  }
+  
+  .icon-btn img {
     width: 20px;
     height: 20px;
   }
   
-  .palantir-floating-header .get-started-btn {
-    font-size: 12px;
-    padding: 8px 12px;
-    min-width: 100px;
+  /* 390px 이하에서 메뉴 버튼 이미지 가득 채움 */
+  .icon-btn:first-of-type img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .palantir-floating-header-wrapper {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .palantir-floating-header {
+    padding: 8px 16px;
+    height: 56px;
+  }
+  
+  .get-started-btn {
     width: 120px !important;
-    max-width: 120px !important;
     min-width: 120px !important;
+    max-width: 120px !important;
+    font-size: 10px;
+    border: none !important;
+  }
+  
+  .header-logo {
+    height: 28px;
+  }
+  
+  .header-actions {
+    gap: 6px;
+  }
+  
+  .icon-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 4px;
+    border: none !important;
+  }
+  
+  .icon-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* 360px 이하에서 메뉴 버튼 이미지 가득 채움 */
+  .icon-btn:first-of-type img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 }
 
@@ -667,6 +839,25 @@
 .full-nav-logo-img {
   height: 40px;
   width: auto;
+}
+
+/* 전체 네비게이션 메뉴에서도 모바일에서 로고 크기 조정 */
+@media (max-width: 768px) {
+  .full-nav-logo-img {
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .full-nav-logo-img {
+    height: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .full-nav-logo-img {
+    height: 28px;
+  }
 }
 
 .full-nav-header-actions {
@@ -893,6 +1084,56 @@
   
   .nav-sub-item a {
     font-size: 20px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .full-nav-container {
+    padding: 16px;
+  }
+  
+  .full-nav-header {
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+  }
+  
+  .full-nav-logo-img {
+    height: 32px;
+  }
+  
+  .full-nav-header-actions {
+    gap: 12px;
+  }
+  
+  .full-nav-get-started {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .full-nav-get-started-img {
+    max-width: 140px;
+  }
+  
+  .full-nav-close {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .full-nav-content {
+    gap: 30px;
+  }
+  
+  .nav-main-list a {
+    font-size: 20px;
+  }
+  
+  .nav-sub-item a {
+    font-size: 18px !important;
+  }
+  
+  .news-image {
+    height: 150px;
   }
 }
 

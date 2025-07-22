@@ -8,10 +8,23 @@ const Header = () => {
     return saved === 'true';
   });
 
+  // 모바일 화면 감지를 위한 상태 (390px 기준)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 390);
+
   // 분기 3: 전체 네비게이션 상태 변경 시 localStorage에 저장
   useEffect(() => {
     localStorage.setItem('header-fullNavOpen', isFullNavOpen.toString());
   }, [isFullNavOpen]);
+
+  // 화면 크기 변화 감지 (390px 기준)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 390);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -33,6 +46,13 @@ const Header = () => {
     setIsFullNavOpen(false);
   };
 
+  // 로고 이미지 소스 결정
+  const getLogoSrc = () => {
+    return isMobile 
+      ? process.env.PUBLIC_URL + "/image/mobileLogo.png"
+      : process.env.PUBLIC_URL + "/image/image2.png";
+  };
+
   return (
     <>
       {/* 웹 헤더를 모바일/데스크톱 모두 동일하게 사용 */}
@@ -40,7 +60,7 @@ const Header = () => {
         <header className="palantir-floating-header">
           <div className="header-logo-area">
             <img
-              src={process.env.PUBLIC_URL + "/image/image2.png"}
+              src={getLogoSrc()}
               alt="VMS Holdings Logo"
               className="header-logo"
             />
@@ -120,7 +140,7 @@ const Header = () => {
                          <div className="full-nav-header">
                <div className="full-nav-logo">
                  <img
-                   src={process.env.PUBLIC_URL + "/image/image2.png"}
+                   src={getLogoSrc()}
                    alt="VMS Holdings Logo"
                    className="full-nav-logo-img"
                  />
