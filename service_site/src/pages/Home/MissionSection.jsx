@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MissionSection = () => {
   const [hoveredPlatform, setHoveredPlatform] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <section className="bg-global-5 py-8 md:py-12 lg:py-[76px]">
@@ -37,7 +39,13 @@ const MissionSection = () => {
                  onMouseLeave={() => setHoveredPlatform(null)}>
               {/* Mobile Layout - Following Figma Design */}
               <div className="flex flex-col lg:hidden">
-                <div className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200">
+                <div 
+                  className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200 cursor-pointer"
+                  onClick={() => {
+                    // index2.jsx로 페이지 이동
+                    navigate('/home2');
+                  }}
+                >
                   {/* Image/Video Section */}
                   <div className="flex flex-row items-start w-full">
                     <video 

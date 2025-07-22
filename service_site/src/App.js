@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import Header from './components/Header';
+import Header2 from './components/common/Header2';
 import HeroSection from './components/HeroSection';
 import GeneralSection from './components/GeneralSection';
 import MissionSection from './pages/Home/MissionSection';
@@ -10,6 +10,7 @@ import CTASection from './pages/Home/CTASection';
 import Footer from './components/Footer';
 import GeneralPage from './components/GeneralPage';
 import Platform from './components/Platform';
+import Home2 from './pages/Home/index2';
 import './App.css';
 
 function AppContent() {
@@ -37,9 +38,10 @@ function AppContent() {
       <Routes>
         <Route path="/general" element={<GeneralPage />} />
         <Route path="/platform" element={<Platform />} />
+        <Route path="/home2" element={<Home2 />} />
         <Route path="/" element={
           <div className="w-full min-h-screen bg-global-5">
-            <Header />
+            <Header2 />
             <main>
               <HeroSection />
               <GeneralSection />
