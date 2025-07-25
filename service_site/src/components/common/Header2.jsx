@@ -40,8 +40,8 @@ const Header = () => {
                 }`}
                 style={{
                   border: '1px solid rgba(255, 255, 255, 0.15)',
-                  width: isMobile ? '90px' : '280px',
-                  height: isMobile ? '32px' : '40px'
+                  width: isMobile ? '80px' : '280px',
+                  height: isMobile ? '28px' : '40px'
                 }}
               >
                 Get Started
