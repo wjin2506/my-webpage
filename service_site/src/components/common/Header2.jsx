@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 380);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 380);
+      setIsMobile(window.innerWidth <= 450);
     };
 
     window.addEventListener('resize', handleResize);

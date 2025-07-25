@@ -153,7 +153,7 @@
   }
   
   .scroll-indicator-img img {
-    width: 16px;
+    width: 14px;
     height: auto;
   }
 }
@@ -185,7 +185,7 @@
   }
   
   .scroll-indicator-img img {
-    width: 14px;
+    width: 12px;
     height: auto;
   }
 }
@@ -327,8 +327,8 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 32px;
-  width: 120px;
-  height: 72px;
+  width: 100px;
+  height: 60px;
   z-index: 10;
   display: flex;
   align-items: center;
