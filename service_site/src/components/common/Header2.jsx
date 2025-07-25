@@ -27,7 +27,7 @@ const Header = () => {
               <img 
                 src={isMobile ? "/image/mobileLogo.png" : "/images2/img_logo_vms.svg"} 
                 alt="VMS Logo" 
-                className={isMobile ? "h-[32px] w-auto" : "w-full h-[24px] sm:h-[28px] md:h-[32px]"}
+                className={isMobile ? "h-[38px] w-auto" : "w-full h-[24px] sm:h-[28px] md:h-[32px]"}
               />
             </div>
 
@@ -36,11 +36,11 @@ const Header = () => {
               <Button 
                 variant="outline" 
                 className={`py-[7px] font-medium bg-header-2 text-white transition-colors duration-200 ${
-                  isMobile ? 'px-4 text-sm' : 'px-10 text-base'
+                  isMobile ? 'px-2 text-xs' : 'px-10 text-base'
                 }`}
                 style={{
                   border: '1px solid rgba(255, 255, 255, 0.15)',
-                  width: isMobile ? '120px' : '280px',
+                  width: isMobile ? '90px' : '280px',
                   height: isMobile ? '32px' : '40px'
                 }}
               >
