@@ -1,0 +1,66 @@
+/* Home3 Component Specific Styles - 원본 jin970804_s_application_4에서 가져온 설정 */
+.home3-container {
+  /* Global Colors */
+  --global-bg-1: #111111;
+  --global-bg-2: #d6d6d6;
+  --global-bg-3: #eeeeee;
+  --global-bg-4: #f7f7f7;
+  --global-bg-5: #ffffff;
+  --global-bg-6: #ffffff19;
+
+  /* Global Text Colors */
+  --global-text-1: #111111;
+  --global-text-2: #555555;
+  --global-text-3: #707070;
+  --global-text-4: #ffffff;
+  --global-text-5: #ffffff4c;
+
+  /* Header Colors */
+  --header-bg-1: #31313133;
+  --header-bg-2: #ffffff19;
+}
+
+/* Home3 Global Background Classes */
+.home3-container .bg-global-1 {
+  background-color: var(--global-bg-1);
+}
+.home3-container .bg-global-2 {
+  background-color: var(--global-bg-2);
+}
+.home3-container .bg-global-3 {
+  background-color: var(--global-bg-3);
+}
+.home3-container .bg-global-4 {
+  background-color: var(--global-bg-4);
+}
+.home3-container .bg-global-5 {
+  background-color: var(--global-bg-5);
+}
+.home3-container .bg-global-6 {
+  background-color: var(--global-bg-6);
+}
+
+/* Home3 Global Text Classes */
+.home3-container .text-global-1 {
+  color: var(--global-text-1);
+}
+.home3-container .text-global-2 {
+  color: var(--global-text-2);
+}
+.home3-container .text-global-3 {
+  color: var(--global-text-3);
+}
+.home3-container .text-global-4 {
+  color: var(--global-text-4);
+}
+.home3-container .text-global-5 {
+  color: var(--global-text-5);
+}
+
+/* Home3 Header Classes */
+.home3-container .bg-header-1 {
+  background-color: var(--header-bg-1);
+}
+.home3-container .bg-header-2 {
+  background-color: var(--header-bg-2);
+} 

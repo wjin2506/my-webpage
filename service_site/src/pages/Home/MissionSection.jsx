@@ -126,7 +126,21 @@ const MissionSection = () => {
                  onMouseLeave={() => setHoveredPlatform(null)}>
               {/* Mobile Layout - Following Figma Design */}
               <div className="flex flex-col lg:hidden">
-                <div className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200">
+                <div 
+                  className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => {
+                    // Home3 (index3) 페이지로 이동
+                    navigate('/home3');
+                  }}
+                  onTouchStart={() => {}} // 모바일 터치 호버 효과
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      navigate('/home3');
+                    }
+                  }}
+                >
                   {/* Image/Video Section */}
                   <div className="flex flex-row items-start w-full">
                     <video 
@@ -161,7 +175,21 @@ const MissionSection = () => {
               </div>
 
               {/* Desktop Layout - Original Web Layout with Proper Vertical Alignment */}
-              <div className="hidden lg:flex lg:flex-row justify-start items-center w-full py-3">
+              <div 
+                className="hidden lg:flex lg:flex-row justify-start items-center w-full py-3 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                onClick={() => {
+                  // Home3 (index3) 페이지로 이동
+                  navigate('/home3');
+                }}
+                onTouchStart={() => {}} // 모바일 터치 호버 효과
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    navigate('/home3');
+                  }
+                }}
+              >
                 <div className="flex flex-row justify-start items-center w-full">
                   <div className="flex flex-row justify-start items-center w-1/2">
                     <div className="flex flex-col gap-[54px] justify-start items-start mr-8">
@@ -209,7 +237,21 @@ const MissionSection = () => {
                  onMouseLeave={() => setHoveredPlatform(null)}>
               {/* Mobile Layout - Following Figma Design */}
               <div className="flex flex-col lg:hidden">
-                <div className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200">
+                <div 
+                  className="flex flex-col items-start p-6 gap-6 w-full bg-white border-t border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => {
+                    // Home5 (index5) 페이지로 이동
+                    navigate('/home5');
+                  }}
+                  onTouchStart={() => {}} // 모바일 터치 호버 효과
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      navigate('/home5');
+                    }
+                  }}
+                >
                   {/* Image/Video Section */}
                   <div className="flex flex-row items-start w-full">
                     <video 
@@ -245,7 +287,21 @@ const MissionSection = () => {
               </div>
 
               {/* Desktop Layout - Original Web Layout with Proper Vertical Alignment */}
-              <div className="hidden lg:flex lg:flex-row justify-start items-center w-full py-3">
+              <div 
+                className="hidden lg:flex lg:flex-row justify-start items-center w-full py-3 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                onClick={() => {
+                  // Home5 (index5) 페이지로 이동
+                  navigate('/home5');
+                }}
+                onTouchStart={() => {}} // 모바일 터치 호버 효과
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    navigate('/home5');
+                  }
+                }}
+              >
                 <div className="flex flex-row justify-start items-center w-full">
                   <div className="flex flex-row justify-start items-center w-1/2">
                     <div className="flex flex-col gap-[28px] justify-start items-start mr-8">

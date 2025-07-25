@@ -11,6 +11,9 @@ import Footer from './components/Footer';
 import GeneralPage from './components/GeneralPage';
 import Platform from './components/Platform';
 import Home2 from './pages/Home/index2';
+import Home3 from './pages/Home/index3';
+import Home4 from './pages/Home/index4';
+import Home5 from './pages/Home/index5';
 import './App.css';
 
 function AppContent() {
@@ -39,6 +42,9 @@ function AppContent() {
         <Route path="/general" element={<GeneralPage />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/home2" element={<Home2 />} />
+        <Route path="/home3" element={<Home3 />} />
+        <Route path="/home4" element={<Home4 />} />
+        <Route path="/home5" element={<Home5 />} />
         <Route path="/" element={
           <div className="w-full min-h-screen bg-global-5">
             <Header2 />
